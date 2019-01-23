@@ -5,7 +5,7 @@ function enqueue_parent_styles() {
    wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
 }
 
-function sidebar_widgets_init() {
+function sidebar_widget_init() {
     register_sidebar( array(
         'name' => __( 'Main Sidebar'),
         'id' => 'main_sidebar',
@@ -15,4 +15,4 @@ function sidebar_widgets_init() {
         'after_title' => '</h3>'
     ) );
 }
-add_action( 'widgets_init', 'sidebar_widgets_init' );
+add_action( 'widgets_init', 'sidebar_widget_init' );
