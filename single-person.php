@@ -30,10 +30,12 @@
                 <div class="col-xs-12">
 				        <?php the_content(); ?>
 
-								<?php if( have_rows('person_tabbed_content') ): ?>
+								<?php if( have_rows('person_tabbed_content') ):
+										$n= 0;
+									?>
 												<ul class="nav nav-tabs">
 											<?php while( have_rows('person_tabbed_content') ): the_row();
-												$n= 0;
+
 												// vars
 												$tab_title = get_sub_field('person_tab_title');
 												$tab_content = get_sub_field('person_tab_content');
@@ -42,15 +44,18 @@
 												<a class="nav-link <?php if($n == 0){?> active <?php } ?>" data-toggle="tab" href="#person-tab-<?php echo $n;?>" role="tab"><?php echo $tab_title; ?></a>
 											</li>
 
-											<?php $n++ ?>
+											<?php $n++; ?>
 									<?php endwhile; ?>
 										</ul>
 								<?php  endif; ?>
 
-								<?php if( have_rows('person_tabbed_content') ): ?>
+								<?php if( have_rows('person_tabbed_content') ):
+											$n= 0;
+									?>
 											<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+
 										<?php while( have_rows('person_tabbed_content') ): the_row();
-												$n= 0;
+
 												// vars
 												$tab_title = get_sub_field('person_tab_title');
 												$tab_content = get_sub_field('person_tab_content');
@@ -59,7 +64,7 @@
 												<?php echo $tab_content ?>
 											</div>
 
-											<?php $n++ ?>
+											<?php $n++; ?>
 									<?php endwhile; ?>
 										</div>
 								<?php  endif; ?>
