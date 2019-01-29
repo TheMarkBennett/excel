@@ -39,7 +39,7 @@
 												$tab_content = get_sub_field('person_tab_content');
 											?>
 											<li class="nav-item">
-												<a class="nav-link <?php if($n == 0){?> active <?php } ?>" href="#person-tab-<?php echo $n;?>" role="tab"><?php echo $tab_title; ?></a>
+												<a class="nav-link <?php if($n == 0){?> active <?php } ?>" data-toggle="tab" href="#person-tab-<?php echo $n;?>" role="tab"><?php echo $tab_title; ?></a>
 											</li>
 
 											<?php $n++ ?>
@@ -55,7 +55,7 @@
 												$tab_title = get_sub_field('person_tab_title');
 												$tab_content = get_sub_field('person_tab_content');
 											?>
-											<div class="tab-pane fade show <?php if($n == 0){?> active <?php } ?>" id="#person-tab-<?php echo $n;?>" role="tabpanel">
+											<div class="tab-pane fade <?php if($n == 0){?> active <?php } ?>" id="#person-tab-<?php echo $n;?>" role="tabpanel">
 												<?php echo $tab_content ?>
 											</div>
 
