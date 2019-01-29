@@ -31,8 +31,8 @@
 				        <?php the_content(); ?>
 
 								<?php if( have_rows('person_tabbed_content') ): ?>
-										<ul class="nav nav-tabs">
-											<?php while( have_rows('repeater_field_name') ): the_row();
+										<ul class="nav nav-tabs mt-4">
+											<?php while( have_rows('person_tabbed_content') ): the_row();
 												$n= 0;
 												// vars
 												$tab_title = get_sub_field('person_tab_title');
