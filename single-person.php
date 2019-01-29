@@ -21,7 +21,7 @@
 									</div>
                     <div class="col-xs-12 col-md-4">
                         <?php if ( has_post_thumbnail() ) : ?>
-                               <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid',  'sizes' => '350px, 350px' ]); ?>
+                               <?php the_post_thumbnail('person-img', ['class' => 'img-fluid',  'sizes' => '350px, 350px' ]); ?>
                         <?php endif; ?>
 
                     </div>
