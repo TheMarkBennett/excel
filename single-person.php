@@ -8,13 +8,13 @@
                        <h1> <?php  the_field('person_title_prefix');?> <?php the_title(); ?> <?php  the_field('person_title_suffix');?> </h1>
                        <p> <?php  the_field('person_jobtitle');?> </p>
                        <div class="row">
-                            <div class="col-xs-12 col-md-6">
+                            <div class="col-xs-12 col-md-auto">
                             <p> <?php  the_field('person_phone');?> </p>
                             </div>
-                            <div class="col-xs-12 col-md-6">
+                            <div class="col-xs-12 col-md-auto">
                             <p> <?php  the_field('person_email');?> </p>
 													</div>
-                            <div class="col-xs-12">
+                            <div class="col-xs-12 col-md-auto">
                             <p> <?php  the_field('person_location');?> </p>
                         </div>
                     </div>
@@ -26,9 +26,33 @@
 
                     </div>
         </div>
-         <div class="row">
+         <div class="row mt-4">
                 <div class="col-xs-12">
 				        <?php the_content(); ?>
+
+								<?php if( have_rows('person_tabbed_content') ): ?>
+										<ul class="nav nav-tabs">
+											<?php while( have_rows('repeater_field_name') ): the_row();
+												$n= 0;
+												// vars
+												$tab_title = get_sub_field('person_tab_title');
+												$tab_content = get_sub_field('person_tab_content');
+											?>
+											<li class="nav-item">
+												<a class="nav-link active" href="#tab-<?php echo $n;?>" role="tab"><?php echo $tab_title; ?></a>
+											</li>
+
+											<?php $n++ ?>
+									<?php endwhile; ?>
+										</ul>
+								<?php  endif; ?>
+
+
+
+
+
+
+
 			    </div>
             </div>
 
