@@ -5,29 +5,29 @@
 		<div class="row">
 
                     <div class="col-xs-12 col-md-8">
-                       <h1> <?php  the_field('person_title_prefix');?> <?php the_title(); ?> <?php  the_field('person_title_suffix');?> <h1>
+                       <h1> <?php  the_field('person_title_prefix');?> <?php the_title(); ?> <?php  the_field('person_title_suffix');?> </h1>
                        <p> <?php  the_field('person_jobtitle');?> </p>
                        <div class="row">
-                            <div class="col-xs-12 col-md-4">
+                            <div class="col-xs-12 col-md-6">
                             <p> <?php  the_field('person_phone');?> </p>
                             </div>
-                            <div class="col-xs-12 col-md-4">
+                            <div class="col-xs-12 col-md-6">
                             <p> <?php  the_field('person_email');?> </p>
 													</div>
-                            <div class="col-xs-12 col-md-4">
+                            <div class="col-xs-12">
                             <p> <?php  the_field('person_location');?> </p>
                         </div>
                     </div>
 									</div>
                     <div class="col-xs-12 col-md-4">
                         <?php if ( has_post_thumbnail() ) : ?>
-                               <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid' ]); ?>
+                               <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid',  'sizes' => '350px, 350px' ]); ?>
                         <?php endif; ?>
 
                     </div>
         </div>
          <div class="row">
-                <div class="col-xs-12 col-md-8">
+                <div class="col-xs-12">
 				        <?php the_content(); ?>
 			    </div>
             </div>
