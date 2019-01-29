@@ -40,8 +40,8 @@
 												$tab_title = get_sub_field('person_tab_title');
 												$tab_content = get_sub_field('person_tab_content');
 											?>
-											<li class="nav-item">
-												<a class="nav-link <?php if($n == 0){?> active <?php } ?>" data-toggle="tab" href="#person-tab-<?php echo $n;?>" role="tab"><?php echo $tab_title; ?></a>
+											<li class="nav-item <?php if($n == 0){?>active<?php } ?>">
+												<a class="nav-link" data-toggle="tab" href="#person-tab-<?php echo $n;?>" role="tab"><?php echo $tab_title; ?></a>
 											</li>
 
 											<?php $n++; ?>
@@ -52,7 +52,7 @@
 								<?php if( have_rows('person_tabbed_content') ):
 											$n= 0;
 									?>
-											<div class="tab-content py-3 px-5 px-sm-0" id="nav-tabContent">
+											<div class="tab-content">
 
 										<?php while( have_rows('person_tabbed_content') ): the_row();
 
@@ -60,8 +60,8 @@
 												$tab_title = get_sub_field('person_tab_title');
 												$tab_content = get_sub_field('person_tab_content');
 											?>
-											<div id="#person-tab-<?php echo $n;?>" class="tab-pane .fade <?php if($n == 0){?>active<?php } ?>"  role="tabpanel">
-												<?php echo $tab_content ?>
+											<div id="person-tab-<?php echo $n;?>" class="tab-pane fade <?php if($n == 0){?>active<?php } ?>" >
+												<p><?php echo $tab_content ?></p>
 											</div>
 
 											<?php $n++; ?>
