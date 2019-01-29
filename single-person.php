@@ -31,6 +31,7 @@
 				        <?php the_content(); ?>
 
 								<?php if( have_rows('person_tabbed_content') ): ?>
+												<ul class="nav nav-tabs">
 											<?php while( have_rows('person_tabbed_content') ): the_row();
 												$n= 0;
 												// vars
