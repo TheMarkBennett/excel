@@ -52,7 +52,7 @@
 								<?php if( have_rows('person_tabbed_content') ):
 											$n= 0;
 									?>
-											<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+											<div class="tab-content py-3 px-5 px-sm-0" id="nav-tabContent">
 
 										<?php while( have_rows('person_tabbed_content') ): the_row();
 
@@ -60,7 +60,7 @@
 												$tab_title = get_sub_field('person_tab_title');
 												$tab_content = get_sub_field('person_tab_content');
 											?>
-											<div class="tab-pane <?php if($n == 0){?> active <?php } ?>" id="#person-tab-<?php echo $n;?>" role="tabpanel">
+											<div id="#person-tab-<?php echo $n;?>" class="tab-pane .fade <?php if($n == 0){?>active<?php } ?>"  role="tabpanel">
 												<?php echo $tab_content ?>
 											</div>
 
