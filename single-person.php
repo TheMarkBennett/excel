@@ -31,7 +31,6 @@
 				        <?php the_content(); ?>
 
 								<?php if( have_rows('person_tabbed_content') ): ?>
-										<ul class="nav nav-tabs mt-4">
 											<?php while( have_rows('person_tabbed_content') ): the_row();
 												$n= 0;
 												// vars
@@ -39,12 +38,29 @@
 												$tab_content = get_sub_field('person_tab_content');
 											?>
 											<li class="nav-item">
-												<a class="nav-link active" href="#tab-<?php echo $n;?>" role="tab"><?php echo $tab_title; ?></a>
+												<a class="nav-link <?php if($n == 0){?> active <?php } ?>" href="#person-tab-<?php echo $n;?>" role="tab"><?php echo $tab_title; ?></a>
 											</li>
 
 											<?php $n++ ?>
 									<?php endwhile; ?>
 										</ul>
+								<?php  endif; ?>
+
+								<?php if( have_rows('person_tabbed_content') ): ?>
+											<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+										<?php while( have_rows('person_tabbed_content') ): the_row();
+												$n= 0;
+												// vars
+												$tab_title = get_sub_field('person_tab_title');
+												$tab_content = get_sub_field('person_tab_content');
+											?>
+											<div class="tab-pane fade show <?php if($n == 0){?> active <?php } ?>" id="#person-tab-<?php echo $n;?>" role="tabpanel">
+												<?php echo $tab_content ?>
+											</div>
+
+											<?php $n++ ?>
+									<?php endwhile; ?>
+										</div>
 								<?php  endif; ?>
 
 
