@@ -60,7 +60,7 @@
 												$tab_title = get_sub_field('person_tab_title');
 												$tab_content = get_sub_field('person_tab_content');
 											?>
-											<div id="person-tab-<?php echo $n;?>" class="tab-pane py-md-3 px-md-5 px-sm-0 fade <?php if($n == 0){?>active<?php } ?>" >
+											<div id="person-tab-<?php echo $n;?>" class="tab-pane py-md-3 px-md-5 px-sm-0 fade <?php if($n == 0){?>in active<?php } ?>" >
 												<p><?php echo $tab_content ?></p>
 											</div>
 
