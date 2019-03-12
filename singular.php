@@ -3,7 +3,7 @@
 
 <?php 
 
-if ( get_post_type( get_the_ID() ) == 'person' ) {
+if ( is_singular('person') ) {
     get_template_part( 'templates/content', 'boxed' ); 
 }else{
  get_template_part( 'templates/content', 'sidebar' ); 
