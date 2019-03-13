@@ -18,9 +18,4 @@ function sidebar_widget_init() {
 add_action( 'widgets_init', 'sidebar_widget_init' );
 
 
-<?php 
-    add_action( 'get_header', 'remove_ucf_title' );
-    function remove_my_action(){
-	remove_action( 'get_header', 'ucfwp_get_header_title' );
-}   
- ?>
+
