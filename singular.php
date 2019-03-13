@@ -1,6 +1,11 @@
+<?php 
+    add_action( 'wp_head', 'remove_ucf_title' );
+    function remove_my_action(){
+	remove_action( 'wp_head', 'ucfwp_get_header_title' );
+}   
+ ?>
+
 <?php get_header(); the_post(); ?>
-
-
 <?php 
 
 if ( is_singular('person') ) {
@@ -16,11 +21,3 @@ if ( is_singular('person') ) {
 
 <?php
 
-
-function remove_page_title( $title, $id ) {
-           return '';
-
-    return $title;
-}
-
-?>
