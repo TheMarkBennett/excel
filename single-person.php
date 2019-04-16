@@ -8,23 +8,37 @@
 				<aside class="person-contact-container">
 
 					<div class="mb-4">
-						<?php echo get_person_thumbnail( $post, 'rounded-circle' ); ?>
+						<?php the_post_thumbnail('medium'); ?>
 					</div>
 
 					<h1 class="h5 person-title text-center mb-2">
-						<?php echo get_person_name( $post ); ?>
+						<?php the_title(); ?>
 					</h1>
 
 					<?php if ( $job_title = get_field( 'person_jobtitle' ) ): ?>
-					<div class="person-job-title text-center mb-4"><?php echo $job_title; ?></div>
+					<div class="person-job-title text-center mb-4">
+              <?php echo $job_title; ?>
+          </div>
 					<?php endif; ?>
 
-					<?php echo get_person_contact_btns_markup( $post ); ?>
+          <div class="row mt-3 mb-5">
+            <?php if(get_field( 'person_email' )): ?>
+        				<div class="col-md offset-md-0 col-8 offset-2 my-1">
+        			       <a href="<? the_field('person_email'); ?>" class="btn btn-primary btn-block">Email</a>
+        		  </div>
+            <?php endif; ?>
+        						<div class="col-md offset-md-0 col-8 offset-2 my-1">
+        			<a href="tel:4078231419" class="btn btn-primary btn-block">Phone</a>
+        		</div>
+			</div>
 
-					<?php echo get_person_dept_markup( $post ); ?>
-					<?php echo get_person_office_markup( $post ); ?>
-					<?php echo get_person_email_markup( $post ); ?>
-					<?php echo get_person_phones_markup( $post ); ?>
+					<?php echo //get_person_contact_btns_markup( $post ); ?>
+
+
+					<?php echo //get_person_dept_markup( $post ); ?>
+					<?php echo //get_person_office_markup( $post ); ?>
+					<?php echo //get_person_email_markup( $post ); ?>
+					<?php echo //get_person_phones_markup( $post ); ?>
 
 				</aside>
 
@@ -33,7 +47,7 @@
 			<div class="col-md-8 col-lg-7 pl-md-5">
 
 				<section class="person-content">
-					<?php echo get_person_desc_heading( $post ); ?>
+					<?php //echo get_person_desc_heading( $post ); ?>
 
 					<?php
 					if ( $post->post_content ) {
@@ -51,12 +65,34 @@
 					<?php endif; ?>
 				</section>
 
+        <?php if( have_rows('person_tabbed_content') ):
+
+                      // vars
+            		$title = get_sub_field('person_tab_title');
+            		$content = get_sub_field('person_tab_content');
+            		$count = 0;
+                $active = 'active';
+
+
+                $tabs = '<section class="person-additional">';
+                $tabs .= '<ul class="nav nav-tabs" id="myTab" role="tablist">';
+            while( have_rows('person_tabbed_content') ): the_row();
+                $tabs .= '<li>';
+                   $tabs .= '<a class="nav-link active" id="home-tab" data-toggle="tab" href="#tab'. $count .'" role="tab" aria-controls="home" aria-selected="true">'. $title .' </a>';
+                $tabs .= '</li>';
+
+                $count++;
+
+       endwhile;
+              $tabs .=  '</ul>';
+              $tabs .= '</section>';
+         endif; ?>
+
+         <?php echo $tabs ?>
+
 			</div>
 		</div>
 
-		<?php echo get_person_news_publications_markup( $post ); ?>
-
-		<?php echo get_person_videos_markup( $post ); ?>
 	</div>
 </article>
 
