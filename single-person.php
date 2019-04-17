@@ -86,9 +86,10 @@
        endwhile;
               $tabs .=  '</ul>';
               $tabs .= '</section>';
+							echo $tabs;
          endif; ?>
 
-         <?php echo $tabs ?>
+
 
 			</div>
 		</div>
